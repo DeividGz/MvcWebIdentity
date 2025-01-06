@@ -29,7 +29,7 @@ namespace MvcWebIdentity.Controllers
         }
 
         // GET: Produtos/Details/5
-        [Authorize(Policy = "IsFuncionarioClaimAccess")]
+        [Authorize(Policy = "TempoCadastroMinimo")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -48,7 +48,7 @@ namespace MvcWebIdentity.Controllers
         }
 
         // GET: Produtos/Create
-        [Authorize(Policy = "IsFuncionarioClaimAccess")]
+        [Authorize(Policy = "TempoCadastroMinimo")]
         public IActionResult Create()
         {
             return View();
@@ -71,7 +71,7 @@ namespace MvcWebIdentity.Controllers
         }
 
         // GET: Produtos/Edit/5
-        [Authorize(Policy = "IsAdminClaimAccess")]
+        [Authorize(Policy = "TempoCadastroMinimo")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -123,7 +123,8 @@ namespace MvcWebIdentity.Controllers
         }
 
         // GET: Produtos/Delete/5
-        [Authorize(Policy = "IsAdminClaimAccess")]
+        //[Authorize(Policy = "TempoCadastroMinimo", Roles = "Admin")]
+        [Authorize(Policy = "TesteClaim")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
